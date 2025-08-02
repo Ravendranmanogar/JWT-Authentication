@@ -3,6 +3,7 @@
 // require('dotenv').config()
 import express from 'express'
 import dotenv from 'dotenv';
+import authRouter from './routes/authRoutes.js'
 dotenv.config();
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
@@ -16,5 +17,6 @@ app.use(cookieParser())
 //app.use(core({credential s:true}))
 
 app.get('/',(req,res)=>{res.send("API working")})
+app.use('/api/auth',authRouter)
 
 app.listen(port, ()=>console.log(`Server started on port: ${port}`));

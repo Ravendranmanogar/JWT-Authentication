@@ -1,16 +1,20 @@
 // const express = require('express')
 // const app = express()
 // require('dotenv').config()
-import express from 'express'
 import dotenv from 'dotenv';
-import authRouter from './routes/authRoutes.js'
 dotenv.config();
+
+import express from 'express'
+
+import authRouter from './routes/authRoutes.js'
+
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 const app = express()
 import connectdb from './config/db.js'
 const port = process.env.PORT || 4000
 connectdb();
+
 
 app.use(express.json())
 app.use(cookieParser())

@@ -12,6 +12,7 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 const app = express()
 import connectdb from './config/db.js'
+import userRouter from './routes/userRoutes.js';
 const port = process.env.PORT || 4000
 connectdb();
 
@@ -22,5 +23,6 @@ app.use(cookieParser())
 
 app.get('/',(req,res)=>{res.send("API working")})
 app.use('/api/auth',authRouter)
+app.use('/api/user',userRouter)
 
 app.listen(port, ()=>console.log(`Server started on port: ${port}`));
